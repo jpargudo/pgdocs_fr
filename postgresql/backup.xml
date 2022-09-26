@@ -21,7 +21,7 @@
    <listitem><para>l'archivage continu.</para></listitem>
   </itemizedlist>
   Chacune a ses avantages et ses inconvénients. Elles sont toutes analysées,
-  chacune leur tour, dans les sections suivantes.
+  chacune à leur tour, dans les sections suivantes.
  </para>
 
  <sect1 id="backup-dump">
@@ -40,7 +40,7 @@
    standard. Son utilité est expliquée plus loin. Bien que la commande
    ci-dessus crée un fichier texte, <application>pg_dump</application> peut
    créer des fichiers dans d'autres formats qui permettent le parallélisme et
-   un contrôle plus fin de la restauration des objets.
+   un contrôle plus fin lors de la restauration des objets.
   </para>
 
   <para>
@@ -51,9 +51,9 @@
    n'a pas de droits spéciaux. En particulier, il doit avoir un accès en
    lecture à toutes les tables que vous voulez sauvegarder, donc pour
    sauvegarder une base complète, vous devez pratiquement toujours utiliser
-   un superutilisateur. si vous n'avez pas les droits suffisants pour
+   un superutilisateur. Si vous n'avez pas les droits suffisants pour
    sauvegarder la base entière, vous pouvez toujours sauvegarder les parties
-   pour lesquels vous avez le droit d'accès en utilisant des options telles
+   pour lesquelles vous avez le droit d'accès en utilisant des options telles
    que <option>-n <replaceable>schéma</replaceable></option> et <option>-t
    <replaceable>table</replaceable></option>.)
   </para>
@@ -467,7 +467,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
    de données est en cours d'exécution, puis en arrêtant le serveur juste
    assez longtemps pour lancer <command>rsync --checksum</command> une
    deuxième fois (<option>--checksum</option> est nécessaire car
-   <command>rsync</command> n'a une granularité que d'une seconde quand il
+   <command>rsync</command> n'a qu'une granularité d'une seconde quand il
    teste par horodatage de modification). Le deuxième
    <application>rsync</application> est beaucoup plus rapide que le premier
    car il a relativement peu de données à transférer et le résultat final est
@@ -533,7 +533,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
     <listitem>
      <para>
       Puisqu'une longue séquence de journaux de transactions peut être
-      assemblée pour être rejoués, une sauvegarde continue est obtenue en
+      assemblée pour être rejouée, une sauvegarde continue est obtenue en
       continuant simplement à archiver les journaux de transactions. C'est
       particulièrement intéressant pour les grosses bases de données dont une
       sauvegarde complète fréquente est difficilement réalisable.
@@ -547,7 +547,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
       telle qu'elle était à ce moment-là. Ainsi, cette technique autorise la
       <firstterm>restauration d'un instantané</firstterm> (PITR)&nbsp;: il
       est possible de restaurer l'état de la base de données telle qu'elle
-      était en tout point dans le temps depuis la dernière sauvegarde de
+      était en tout point dans le temps depuis la dernière sauvegarde de la
       base.
      </para>
     </listitem>
@@ -696,7 +696,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
     ou le recycler. Néanmoins, une valeur de retour <literal>false</literal>
     indique à <productname>PostgreSQL</productname> que le fichier n'a pas été
     archivé&nbsp;; il essaiera alors périodiquement de l'archiver jusqu'à la
-    réussite de l'opération. SI vous archivez via une commande shell, les
+    réussite de l'opération. Si vous archivez via une commande shell, les
     valeurs de retour appropriées sont <literal>0</literal> en cas de réussite
     et toute autre valeur en cas d'échec.
    </para>
@@ -728,7 +728,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
     cas</emphasis>. La commande pour Unix en exemple ci-dessus le garantit en
     incluant une étape <command>test</command> séparée. Sur certaines
     plateformes Unix, la commande <command>cp</command> dispose d'une option,
-    comme <option>-i</option> pouvant être utilisé pour faire la même chose,
+    comme <option>-i</option> pouvant être utilisée pour faire la même chose,
     mais en moins verbeux. Cependant, vous ne devriez pas vous baser
     là-dessus sans vous assurer que le code de sortie renvoyé est le bon.
     (En particulier, la commande <command>cp</command> de GNU renvoie un code
@@ -793,7 +793,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
     complets. Du coup, si le serveur engendre peu de trafic dans les journaux
     de transactions (ou qu'il y a des périodes de calme où le trafic est
     léger), il peut y avoir un long délai entre la fin d'une transaction et
-    son enregistrement garanti dans le stockage d'archive. Pour placer une
+    son enregistrement garanti dans le stockage d'archives. Pour placer une
     limite sur l'ancienneté des données archivées, il faut configurer <xref
     linkend="guc-archive-timeout"/>, ce qui permet de forcer le serveur à
     changer de fichier segment WAL passé ce délai. Les fichiers archivés lors
@@ -1038,7 +1038,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
         l'enregistrement de fin de sauvegarde est écrit dans le journal de
         transaction en cours. Par défaut, <function>pg_backup_stop</function>
         attendra jusqu'à ce que tous les journaux de transactions aient été
-        archivés, ce qui peut prendre un certain temps.  Cette option doit
+        archivés, ce qui peut prendre un certain temps. Cette option doit
         être utilisée avec précaution : si l'archivage des journaux de
         transactions n'est pas supervisé correctement, alors la sauvegarde
         pourrait ne pas inclure tous les fichiers segments WAL, et serait
@@ -1296,7 +1296,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
     <programlisting>restore_command = 'cp /mnt/serveur/répertoire_archive/%f %p'</programlisting>
 
     qui copie les fichiers segments WAL précédemment archivés à partir du
-    répertoire <filename>/mnt/serveur/répertoire_archive</filename>.  Il est
+    répertoire <filename>/mnt/serveur/répertoire_archive</filename>. Il est
     toujours possible d'utiliser une commande plus compliquée, voire même un
     script shell qui demande à l'utilisateur de monter la cassette
     appropriée.
@@ -1624,7 +1624,7 @@ pg_restore -d <replaceable class="parameter">nom_base</replaceable> <replaceable
    <para>
     De plus, il faut garder à l'esprit que le format actuel des journaux de
     transactions est extrêmement volumineux car il inclut de nombreuses
-    images complètes des blocs disques. Ces images de bloc sont conçues pour
+    images complètes des blocs disques. Ces images de blocs sont conçues pour
     supporter la restauration après un arrêt brutal, puisqu'il peut être
     nécessaire de corriger des blocs disque partiellement écrits. En fonction
     du matériel et des logiciels composant le système, le risque d'écriture
