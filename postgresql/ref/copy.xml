@@ -282,8 +282,8 @@ de&nbsp;:</phrase>
       <literal>true</literal> (ou une valeur booléenne équivalente).  Si cette
       option vaut <literal>MATCH</literal>, le nombre et les noms des colonnes
       de la ligne d'en-tête doivent correspondre aux noms des colonnes de la
-      table. Dans le cas contre, une erreur est renvoyée. Cette option n'est pas
-      autorisée avec le format <literal>binary</literal>.
+      table, dans l'ordre. Dans le cas contre, une erreur est renvoyée. Cette
+      option n'est pas autorisée avec le format <literal>binary</literal>.
       L'option <literal>MATCH</literal> est uniquement valide pour les commandes
       <command>COPY FROM</command>.
      </para>
@@ -445,7 +445,7 @@ COPY <replaceable class="parameter">nombre</replaceable>
 
   <para>
    <command>COPY FROM</command> peut être utilisée avec une table standard et
-   avec des vues ayant des déclencheurs <literal>INSTEAD OF INSERT</literal>.
+   avec des vues ayant des triggers <literal>INSTEAD OF INSERT</literal>.
   </para>
 
   <para>
@@ -475,7 +475,7 @@ COPY <replaceable class="parameter">nombre</replaceable>
    directement par le serveur, et non pas par l'application cliente. Elle doit
    être exécutable par l'utilisateur <productname>PostgreSQL</productname>.
    L'utilisation de <command>COPY</command> avec un fichier n'est autorisé
-   qu'aux super-utilisateurs de la base de données ou aux utilisateurs membres
+   qu'aux superutilisateurs de la base de données ou aux utilisateurs membres
    des rôles <literal>pg_read_server_files</literal>,
    <literal>pg_write_server_files</literal> ou
    <literal>pg_execute_server_program</literal> car <command>COPY</command>
@@ -511,7 +511,7 @@ COPY <replaceable class="parameter">nombre</replaceable>
   </para>
 
   <para>
-   <command>COPY FROM</command> appelle tous les déclencheurs et
+   <command>COPY FROM</command> appelle tous les triggers et
    contraintes de vérification sur la table de destination, mais pas les
    règles.
   </para>

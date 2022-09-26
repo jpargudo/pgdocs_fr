@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <refentry id="sql-merge">
+ <indexterm zone="sql-merge">
+  <primary>MERGE</primary>
+ </indexterm>
 
  <refmeta>
   <refentrytitle>MERGE</refentrytitle>
@@ -264,11 +267,6 @@ DELETE
       Chaque colonne absente de la liste des champs, explicite ou implicite,
       sera remplie par une valeur par défaut, soit sa valeur par défaut
       déclarée, soit NULL.
-     </para>
-
-     <para>
-      Si l'expression d'une colonne quelconque n'est pas du bon type de données,
-      une conversion automatique du type sera tentée.
      </para>
 
      <para>
@@ -595,12 +593,12 @@ WHEN NOT MATCHED THEN
 <programlisting>
 MERGE INTO CustomerAccount CA
 USING (Select CustomerId, TransactionValue From RecentTransactions) AS T
-ON CA.CustomerId = T.CustomerId
+ON T.CustomerId = CA.CustomerId
+WHEN MATCHED THEN
+  UPDATE SET Balance = Balance + TransactionValue;
 WHEN NOT MATCHED THEN
   INSERT (CustomerId, Balance)
   VALUES (T.CustomerId, T.TransactionValue)
-WHEN MATCHED THEN
-  UPDATE SET Balance = Balance + TransactionValue;
 </programlisting>
   </para>
 

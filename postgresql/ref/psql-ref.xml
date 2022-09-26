@@ -1074,7 +1074,7 @@ basetest=&gt;
         fichier en faisant le routage des données entre le serveur et le système
         de fichiers local. Ceci signifie que l'accès et les droits du fichier
         sont ceux de l'utilisateur local, pas celui du serveur, et qu'aucun
-        droit de super-utilisateur n'est requis.
+        droit de superutilisateur n'est requis.
        </para>
 
        <para>
@@ -1084,7 +1084,7 @@ basetest=&gt;
         <replaceable class="parameter">commande</replaceable> sont routées entre
         le serveur et le client. Encore une fois, les droits d'exécution sont
         ceux de l'utilisateur local, et non du serveur, et les droits
-        super-utilisateur ne sont pas nécessaires.
+        superutilisateur ne sont pas nécessaires.
        </para>
 
        <para>
@@ -1239,7 +1239,7 @@ basetest=&gt;
         colonnes, leurs types, le tablespace (s'il ne s'agit pas du tablespace
         par défaut) et tout attribut spécial tel que <literal>NOT
          NULL</literal> ou les valeurs par défaut. Les index, contraintes, règles
-        et déclencheurs associés sont aussi affichés. Pour les tables distantes,
+        et triggers associés sont aussi affichés. Pour les tables distantes,
         le serveur distant associé est aussi affiché. (Ce qui
         <quote>correspond au motif</quote> est défini dans
         <xref linkend="app-psql-patterns"/>
@@ -4628,7 +4628,7 @@ basetest=&gt; <userinput>INSERT INTO ma_table VALUES (:'contenu');</userinput>
        <term><literal>%#</literal></term>
        <listitem>
         <para>
-         Si l'utilisateur de la session est un super-utilisateur, alors un
+         Si l'utilisateur de la session est un superutilisateur, alors un
          <literal>#</literal> sinon un <literal>&gt;</literal>.
          (L'expansion de cette valeur peut changer durant une session
          après une commande <command>SET SESSION
@@ -4808,7 +4808,7 @@ basetest=&gt; <userinput>INSERT INTO ma_table VALUES (:'contenu');</userinput>
      schéma et presser la tabulation terminera le nom ou proposer un menu des
      complétions possibles quant plusieurs objets correspondent aux premiers
      caractères saisis.  Suivant la bibliothèque utilisée, vous pourriez avoir
-     besoin d'appuyer sur Tabulation plusieurs fois pour obtenir le menu.
+     besoin d'appuyer sur la tabulation plusieurs fois pour obtenir le menu.
     </para>
 
     <para>

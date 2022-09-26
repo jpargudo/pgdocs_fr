@@ -17,7 +17,7 @@
 
  <refsynopsisdiv>
   <synopsis>SET [ SESSION | LOCAL ] <replaceable class="parameter">paramètre_configuration</replaceable> { TO | = } { <replaceable class="parameter">valeur</replaceable> | '<replaceable class="parameter">valeur</replaceable>' | DEFAULT }
-SET [ SESSION | LOCAL ] TIME ZONE { <replaceable class="parameter">fuseau-horaire</replaceable> | LOCAL | DEFAULT }
+SET [ SESSION | LOCAL ] TIME ZONE { <replaceable class="parameter">valeur</replaceable> | '<replaceable class="parameter">valeur</replaceable>' | LOCAL | DEFAULT }
   </synopsis>
  </refsynopsisdiv>
 
@@ -37,7 +37,7 @@ SET [ SESSION | LOCAL ] TIME ZONE { <replaceable class="parameter">fuseau-horair
   </para>
 
   <para>
-   Certains paramètres ne peuvent être modifiés que par le super-utilisateur,
+   Certains paramètres ne peuvent être modifiés que par le superutilisateur,
    d'autres ne peuvent plus être changés après le démarrage
    du serveur ou de la session.
   </para>
@@ -183,7 +183,7 @@ SET [ SESSION | LOCAL ] TIME ZONE { <replaceable class="parameter">fuseau-horair
        Précise la valeur interne du générateur de nombres aléatoires
        (la fonction <function>random</function>).
        Les valeurs autorisées sont des nombres à virgule flottante entre
-       -1 et 1, qui sont ensuite multipliés par 2<superscript>31</superscript>-1.
+       -1 et 1.
       </para>
 
       <para>
@@ -199,8 +199,8 @@ SET [ SESSION | LOCAL ] TIME ZONE { <replaceable class="parameter">fuseau-horair
      <term><literal>TIME ZONE</literal></term>
      <listitem>
       <para>
-       <literal>SET TIME ZONE <replaceable>valeur</replaceable></literal> est équivalent à
-       <literal>SET timezone TO <replaceable>valeur</replaceable></literal>.
+       <literal>SET TIME ZONE '<replaceable>valeur</replaceable>'</literal> est équivalent à
+       <literal>SET timezone TO '<replaceable>valeur</replaceable>'</literal>.
        La syntaxe <literal>SET TIME ZONE</literal> permet d'utiliser une
        syntaxe spéciale pour indiquer le fuseau horaire.
        Quelques exemples de valeurs valides&nbsp;:
@@ -261,8 +261,9 @@ SET [ SESSION | LOCAL ] TIME ZONE { <replaceable class="parameter">fuseau-horair
       </para>
 
       <para>
-       Voir <xref linkend="datatype-timezones"/> pour de plus amples
-       informations sur les fuseaux horaires.
+       Les abréviations de fuseaux horaires ne sont pas acceptées par
+       <command>SET</command>&nbsp;; voir <xref linkend="datatype-timezones"/>
+       pour de plus amples informations sur les fuseaux horaires.
       </para>
      </listitem>
     </varlistentry>

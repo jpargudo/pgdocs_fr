@@ -35,7 +35,7 @@
   cette fonction ne puisse pas être utilisée pour réaliser quelque chose qui
   n'est pas prévue car il sera possible de faire tout ce que peut faire un
   utilisateur connecté en tant qu'administrateur de la base de données. Seuls
-  les super-utilisateurs peuvent créer des fonctions dans des langages sans
+  les superutilisateurs peuvent créer des fonctions dans des langages sans
   confiance comme <literal>plpython3u</literal>.
  </para>
 
@@ -660,10 +660,10 @@ $$ LANGUAGE plpython3u;
  </sect1>
 
  <sect1 id="plpython-trigger">
-  <title>Fonctions de déclencheurs</title>
+  <title>Fonctions de triggers</title>
 
   <indexterm zone="plpython-trigger">
-   <primary>déclencheur</primary>
+   <primary>trigger</primary>
    <secondary>en PL/Python</secondary>
   </indexterm>
 

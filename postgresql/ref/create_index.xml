@@ -244,8 +244,10 @@
       Le nom de la méthode à utiliser pour l'index. Les choix sont
       <literal>btree</literal>, <literal>hash</literal>,
       <literal>gist</literal>, <literal>spgist</literal>,
-      <literal>gin</literal> et <literal>brin</literal>. La méthode par défaut
-      est <literal>btree</literal>.
+      <literal>gin</literal> et <literal>brin</literal>.
+      ou les méthodes d'accès installées par l'utilisateur comme
+      <link linkend="bloom">bloom</link>.
+      La méthode par défaut est <literal>btree</literal>.
      </para>
     </listitem>
    </varlistentry>
@@ -601,9 +603,11 @@
      </term>
      <listitem>
       <para>
-       Définit si le lancement d'un calcul de résumé doit être effectuée pour
+       Définit si le lancement d'un calcul de résumé doit être mis en queue pour
        l'intervalle de blocs précédent chaque fois qu'une insertion est détectée
        sur l'intervalle suivant.
+       Voir <xref linkend="brin-operation"/> pour plus de détails.
+       La valeur par défaut est <literal>off</literal>.
       </para>
      </listitem>
     </varlistentry>

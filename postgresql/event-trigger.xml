@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter id="event-triggers">
- <title>Déclencheurs (triggers) sur événement</title>
+ <title>Triggers sur événement</title>
 
  <indexterm zone="event-triggers">
   <primary>trigger sur événement</primary>
@@ -252,7 +252,7 @@
       <entry align="center"><literal>X</literal></entry>
       <entry align="center"><literal>X</literal></entry>
       <entry align="center"><literal>-</literal></entry>
-      <entry align="center"><literal>-</literal></entry>
+      <entry align="center"><literal>X</literal></entry>
       <entry align="left"></entry>
      </row>
      <row>

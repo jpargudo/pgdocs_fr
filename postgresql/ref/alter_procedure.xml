@@ -59,7 +59,7 @@ de&nbsp;:</phrase>
    <literal>CREATE</literal> sur le schéma de la procédure. Ces restrictions
    assurent que la modification du propriétaire n'a pas d'effets autres que ceux
    obtenus par la suppression et la re-création de la procédure&nbsp;;
-   toutefois, un super-utilisateur peut modifier le propriétaire de n'importe
+   toutefois, un superutilisateur peut modifier le propriétaire de n'importe
    quelle procédure.
   </para>
  </refsect1>
@@ -150,7 +150,12 @@ de&nbsp;:</phrase>
     <term><replaceable class="parameter">nom_extension</replaceable></term>
     <listitem>
      <para>
-      Le nom de l'extension dont la procédure dépend.
+      Cette forme marque la procédure comme dépendante de l'extension, ou comme
+      indépendante de l'extension si <literal>NO</literal> est ajoutée.  Une
+      procédure marquée comme dépendante d'une extension est supprimée quand
+      l'extension est supprimée même si la cascade n'est pas explicitement
+      demandée. Une procédure peut dépendre de plusieurs extensions, et ne sera
+      supprimée que quand une de ces extensions est supprimée.
      </para>
     </listitem>
    </varlistentry>
